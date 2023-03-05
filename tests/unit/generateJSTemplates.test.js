@@ -1,10 +1,12 @@
 import { jest, describe, beforeEach, expect, test } from '@jest/globals';
 
-import { generateControllerTemplate } from '../../src/templates/js/controllerTemplate';
-import { generateFactoryTemplate } from '../../src/templates/js/factoryTemplate';
+import {
+  generateRepositoryTemplate,
+  generateServiceTemplate,
+  generateControllerTemplate,
+  generateFactoryTemplate,
+} from '../../src/templates/js/index.js';
 
-import { generateRepositoryTemplate } from '../../src/templates/js/repositoryTemplate';
-import { generateServiceTemplate } from '../../src/templates/js/serviceTemplate';
 import {
   repositoryTemplateMock,
   serviceTemplateMock,
