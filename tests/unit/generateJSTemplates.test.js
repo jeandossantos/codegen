@@ -15,7 +15,7 @@ import {
 describe('#generate javascript templates', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    jest.resetAllMocks();
+    jest.restoreAllMocks();
   });
 
   const componentName = 'product';
