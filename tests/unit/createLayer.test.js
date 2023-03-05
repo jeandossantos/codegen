@@ -1,7 +1,7 @@
 import { jest, describe, beforeEach, expect, test } from '@jest/globals';
 import fs from 'fs';
 import fsPromise from 'node:fs/promises';
-import { createLayerIfNotExists } from '../../src/createLayer';
+import { createLayerIfNotExists } from '../../src/createLayer.js';
 
 describe('#generate javascript templates', () => {
   beforeEach(() => {
