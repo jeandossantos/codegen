@@ -2,7 +2,7 @@ import fsPromise from 'node:fs/promises';
 import fs from 'node:fs';
 
 export async function createLayerIfNotExists({ mainPath, defaultPath, layer }) {
-  const path = `${defaultPath}/${mainPath}`;
+  const path = `${mainPath}/${defaultPath}`;
 
   const layerExists = fs.existsSync(`${path}/${layer}`);
 
