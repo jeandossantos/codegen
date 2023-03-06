@@ -11,22 +11,32 @@ const template = `export default class $$componentNameController {
   }
 
   async create(request, response) {
+    await this.#$$serviceAnchorService.create({});
+
     return response.status(501).send('not implemented!');
   }
 
   async update(request, response) {
+    await this.#$$serviceAnchorService.update({});
+
     return response.status(501).send('not implemented!');
   }
 
   async findById(request, response) {
+    await this.#$$serviceAnchorService.findById({});
+
     return response.status(501).send('not implemented!');
   }
 
   async find(request, response) {
+    await this.#$$serviceAnchorService.find({});
+
     return response.status(501).send('not implemented!');
   }
 
   async remove(request, response) {
+    await this.#$$serviceAnchorService.remove({});
+
     return response.status(501).send('not implemented!');
   }
 }`;
