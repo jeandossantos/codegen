@@ -12,7 +12,7 @@ import { createLayerIfNotExists } from '../../src/createLayer.js';
 import path from 'node:path';
 import { tmpdir } from 'node:os';
 
-describe('#generate javascript templates', () => {
+describe('#Integration - Create product layer', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     jest.restoreAllMocks();

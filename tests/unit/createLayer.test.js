@@ -3,7 +3,7 @@ import fs from 'fs';
 import fsPromise from 'node:fs/promises';
 import { createLayerIfNotExists } from '../../src/createLayer.js';
 
-describe('#generate javascript templates', () => {
+describe('#Create createLayerIfNotExists', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     jest.restoreAllMocks();

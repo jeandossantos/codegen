@@ -6,7 +6,7 @@ import * as templates from '../../src/templates/js/index.js';
 
 import { createFilesIfNotExists } from '../../src/createFiles.js';
 
-describe('#generate javascript templates', () => {
+describe('#Create javascript files', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     jest.restoreAllMocks();
