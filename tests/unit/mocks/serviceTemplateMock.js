@@ -6,22 +6,22 @@ export default `export default class ProductService {
   }
 
   async create(data) {
-    return Promise.reject('method create is not implemented!');
+    await this.#productRepository.create(data);
   }
 
   async update(id, data) {
-    return Promise.reject('method update is not implemented!');
+    await this.#productRepository.update(id, data);
   }
 
   async findById(id) {
-    return Promise.reject('method findById is not implemented!');
+    await this.#productRepository.findById(id);
   }
 
   async find(data) {
-    return Promise.reject('method find is not implemented!');
+    await this.#productRepository.find(data);
   }
 
   async remove(id) {
-    return Promise.reject('method remove is not implemented!');
+    await this.#productRepository.remove(id);
   }
 }`;

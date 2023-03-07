@@ -4,30 +4,30 @@ const componentNameAnchor = '$$componentName';
 const repositoryAnchor = '$$repositoryAnchor';
 
 const template = `export default class $$componentNameService {
-  #productRepository;
+  #$$repositoryAnchorRepository;
 
   constructor({ $$repositoryAnchorRepository }) {
     this.#$$repositoryAnchorRepository = $$repositoryAnchorRepository;
   }
 
   async create(data) {
-    return Promise.reject('method create is not implemented!');
+    await this.#$$repositoryAnchorRepository.create(data);
   }
 
   async update(id, data) {
-    return Promise.reject('method update is not implemented!');
+    await this.#$$repositoryAnchorRepository.update(id, data);
   }
 
   async findById(id) {
-    return Promise.reject('method findById is not implemented!');
+    await this.#$$repositoryAnchorRepository.findById(id);
   }
 
   async find(data) {
-    return Promise.reject('method find is not implemented!');
+    await this.#$$repositoryAnchorRepository.find(data);
   }
 
   async remove(id) {
-    return Promise.reject('method remove is not implemented!');
+    await this.#$$repositoryAnchorRepository.remove(id);
   }
 }`;
 
