@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import chalk from 'chalk';
@@ -11,9 +12,9 @@ let { packageName: packages } = yargs(hideBin(process.argv))
     return builder
       .option('package-name', {
         alias: 'p',
-        type: 'array',
         describe: 'The name of the package',
         demandOption: true,
+        type: 'array',
       })
       .example('codegen create --package-name hero', 'create a package')
       .example('codegen create -p hero', 'create a package')
@@ -36,6 +37,13 @@ const config = {
   mainPath: '.',
   defaultPath,
 };
+
+if (!packages || packages.length === 0) {
+  const help = await yargs().getHelp();
+  console.log(help);
+
+  process.exit();
+}
 
 for (let pkg of packages) {
   await createPackageIfNotExists({
