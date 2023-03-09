@@ -8,27 +8,24 @@ export async function createFilesIfNotExists({
   defaultPath,
   componentName,
 }) {
-  const layer = componentName;
-  const targetFolder = `${mainPath}/${defaultPath}/${layer}`;
-
+  const pkg = componentName;
+  const targetFolder = `${mainPath}/${defaultPath}/${pkg}`;
   const templatesKeys = Object.keys(templates);
 
-  const pendingPromises = [];
+  const writtenFiles = [];
 
   for (const template of templatesKeys) {
     const { filename, template: txtFile } = templates[template](componentName);
+    const filePath = `${targetFolder}/${filename}.js`;
 
-    const fileAlreadyExists = fs.existsSync(`${targetFolder}/${filename}.js`);
+    const fileAlreadyExists = fs.existsSync(filePath);
 
     if (fileAlreadyExists) continue;
 
-    const promise = fsPromise.writeFile(
-      `${targetFolder}/${filename}.js`,
-      txtFile
-    );
+    await fsPromise.writeFile(filePath, txtFile);
 
-    pendingPromises.push(promise);
+    writtenFiles.push(filePath);
   }
 
-  return Promise.all(pendingPromises);
+  return writtenFiles;
 }
