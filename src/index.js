@@ -28,6 +28,7 @@ let { packageName: packages } = yargs(hideBin(process.argv))
       )
       .epilog('Copyright (c) 2023 - Jean dos Santos');
   })
+  .demandCommand(1)
   .parse();
 
 const env = process.env.NODE_ENV;
