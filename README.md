@@ -29,6 +29,7 @@ deve gerar a seguinte estrutura:
 - node.js
 - yargs
 - chalk
+- jest para testes automatizados
 
 ## Autor
 Jean dos Santos
