@@ -45,8 +45,16 @@ describe('#Create javascript files', () => {
       componentName,
     };
 
-    await createFilesIfNotExists(data);
+    const expectedFilePaths = [
+      '/src-test/app/product/productController.js',
+      '/src-test/app/product/productFactory.js',
+      '/src-test/app/product/productRepository.js',
+      '/src-test/app/product/productService.js',
+    ];
 
+    const result = await createFilesIfNotExists(data);
+
+    expect(result).toEqual(expectedFilePaths);
     expect(fsPromise.writeFile).toHaveBeenCalledTimes(templatesLength);
   });
 });
