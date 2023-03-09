@@ -14,7 +14,7 @@ const serviceInstanceAnchor = '$$serviceInstance';
 
 const template = `import $$repositoryNameRepository from './$$repositoryFilenameRepository.js';
 import $$serviceNameService from './$$serviceFilenameService.js';
-import $$controllerNameController from './productController.js';
+import $$controllerNameController from './$$controllerFilenameController.js';
 
 export default class $$componentNameFactory {
   static getInstance() {
