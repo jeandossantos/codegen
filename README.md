@@ -25,6 +25,25 @@ deve gerar a seguinte estrutura:
 
 ![codegen](https://github.com/jeandossantos/assets/blob/master/codegen/after-codegen.png)
 
+## Como executar o projeto
+
+baixe o projeto:
+```shell
+git clone https://github.com/jeandossantos/codegen.git
+```
+entre na pasta do projeto:
+```shell
+cd codegen
+```
+instale as dependências: 
+```shell
+npm ci
+```
+execute o projeto:
+```shell
+npm start
+```
+
 ## Tecnologias utilizadas
 - node.js
 - yargs
