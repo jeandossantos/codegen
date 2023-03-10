@@ -4,6 +4,8 @@
 
 CLI para criar um ou vários pacotes com recursos(repository, service, controller, factory) automaticamente.
 
+![codegen](https://github.com/jeandossantos/assets/blob/master/codegen/codegen.gif)
+
 ## Como funciona
 
 Dado um projeto com a seguinte estrutura:
