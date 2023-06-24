@@ -1,11 +1,11 @@
 {
-  "name": "codegen",
+  "name": "pack-generator",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "bin": {
-    "codegen": "./src/index.js"
+    "packgen": "./src/index.js"
   },
   "scripts": {
     "start": "NODE_ENV=dev node ./src/index.js create -p product -p person",
