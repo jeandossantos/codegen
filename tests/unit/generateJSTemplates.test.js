@@ -5,7 +5,7 @@ import {
   generateServiceTemplate,
   generateControllerTemplate,
   generateFactoryTemplate,
-} from '../../src/templates/js/index.js';
+} from '../../src/templates/index.js';
 
 import {
   repositoryTemplateMock,

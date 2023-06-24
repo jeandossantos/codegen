@@ -1,7 +1,7 @@
 import fsPromise from 'node:fs/promises';
 import fs from 'node:fs';
 
-import * as templates from './templates/js/index.js';
+import * as templates from './templates/index.js';
 
 export async function createFilesIfNotExists({
   mainPath,

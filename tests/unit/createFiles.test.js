@@ -2,7 +2,7 @@ import { jest, describe, beforeEach, expect, test } from '@jest/globals';
 import fsPromise from 'node:fs/promises';
 import fs from 'node:fs';
 
-import * as templates from '../../src/templates/js/index.js';
+import * as templates from '../../src/templates/index.js';
 
 import { createFilesIfNotExists } from '../../src/createFiles.js';
 
