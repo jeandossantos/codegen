@@ -49,6 +49,7 @@ describe('#Create javascript files', () => {
       '/src-test/app/product/productController.js',
       '/src-test/app/product/productFactory.js',
       '/src-test/app/product/productRepository.js',
+      '/src-test/app/product/productRoutes.js',
       '/src-test/app/product/productService.js',
     ];
 

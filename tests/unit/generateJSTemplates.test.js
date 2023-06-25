@@ -5,6 +5,7 @@ import {
   generateServiceTemplate,
   generateControllerTemplate,
   generateFactoryTemplate,
+  generateRoutesTemplate,
 } from '../../src/templates/index.js';
 
 import {
@@ -12,6 +13,7 @@ import {
   serviceTemplateMock,
   controllerTemplateMock,
   factoryTemplateMock,
+  routesTemplateMock,
 } from './mocks/index.js';
 
 describe('#generate javascript templates', () => {
@@ -26,6 +28,7 @@ describe('#generate javascript templates', () => {
   const serviceName = `${componentName}Service`;
   const controllerName = `${componentName}Controller`;
   const factoryName = `${componentName}Factory`;
+  const routesName = `${componentName}Routes`;
 
   test('should generate a product repository template', () => {
     const expected = {
@@ -67,6 +70,17 @@ describe('#generate javascript templates', () => {
     };
 
     const result = generateFactoryTemplate(componentName);
+
+    expect(result).toStrictEqual(expected);
+  });
+
+  test("should generate product's routes template", () => {
+    const expected = {
+      filename: routesName,
+      template: routesTemplateMock,
+    };
+
+    const result = generateRoutesTemplate(componentName);
 
     expect(result).toStrictEqual(expected);
   });
