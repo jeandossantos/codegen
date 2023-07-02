@@ -6,37 +6,43 @@ import chalk from 'chalk';
 
 import { createLayerIfNotExists as createPackageIfNotExists } from './createLayer.js';
 import { createFilesIfNotExists } from './createFiles.js';
+import { createRootRouteIfNotExists } from './createRootRoute.js';
 
 let { packageName: packages } = yargs(hideBin(process.argv))
-  .command('create', 'create a package for the features', (builder) => {
-    return builder
-      .option('package-name', {
-        alias: 'p',
-        describe: 'The name of the package',
-        demandOption: true,
-        type: 'array',
-      })
-      .example('codegen create --package-name hero', 'create a package')
-      .example('codegen create -p hero', 'create a package')
-      .example(
-        'codegen create --package-name user --package-name product --package-name order',
-        'create several packages at once'
-      )
-      .example(
-        'codegen create -p user -p product -p order',
-        'create several packages at once'
-      )
-      .epilog('Copyright (c) 2023 - Jean dos Santos');
-  })
+  .command(
+    'create',
+    'create a package for the features and its routes',
+    (builder) => {
+      return builder
+        .option('package-name', {
+          alias: 'p',
+          describe: 'The name of the package',
+          demandOption: true,
+          type: 'array',
+        })
+        .example('codegen create --package-name hero', 'create a package')
+        .example('codegen create -p hero', 'create a package')
+        .example(
+          'codegen create --package-name user --package-name product --package-name order',
+          'create several packages at once'
+        )
+        .example(
+          'codegen create -p user -p product -p order',
+          'create several packages at once'
+        )
+        .epilog('Copyright (c) 2023 - Jean dos Santos');
+    }
+  )
   .demandCommand(1)
   .parse();
 
 const env = process.env.NODE_ENV;
-const defaultPath = env === 'dev' ? 'src-test/app' : 'src/app';
+const defaultPackagePath = env === 'dev' ? 'src-test/app' : 'src/app';
+const defaultRoutePath = env === 'dev' ? 'src-test' : 'src';
 
 const config = {
   mainPath: '.',
-  defaultPath,
+  defaultPath: defaultPackagePath,
 };
 
 if (!packages || packages.length === 0) {
@@ -62,6 +68,13 @@ for (let pkg of packages) {
   });
 
   pendingFeatures.push(result);
+}
+
+for (let pkg of packages) {
+  await createRootRouteIfNotExists({
+    mainPath: `${config.mainPath}/${defaultRoutePath}`,
+    componentName: pkg,
+  });
 }
 
 const results = await Promise.allSettled(pendingFeatures);
