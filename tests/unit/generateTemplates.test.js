@@ -8,12 +8,15 @@ import {
   generateRoutesTemplate,
 } from '../../src/templates/index.js';
 
+import { generateRootRouteTemplate } from '../../src/templates/rootRouteTemplate.js';
+
 import {
   repositoryTemplateMock,
   serviceTemplateMock,
   controllerTemplateMock,
   factoryTemplateMock,
   routesTemplateMock,
+  rootRouteTemplate,
 } from './mocks/index.js';
 
 describe('#generate javascript templates', () => {
@@ -81,6 +84,16 @@ describe('#generate javascript templates', () => {
     };
 
     const result = generateRoutesTemplate(componentName);
+
+    expect(result).toStrictEqual(expected);
+  });
+
+  test('should generate root route template', () => {
+    const expected = {
+      template: rootRouteTemplate,
+    };
+
+    const result = generateRootRouteTemplate(componentName);
 
     expect(result).toStrictEqual(expected);
   });
